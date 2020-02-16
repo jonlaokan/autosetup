@@ -1,0 +1,51 @@
+---
+user: jonlaokan
+core_pkgs:
+  - xmonad
+  - xmobar
+  - vim
+  - neovim
+  - tmux
+  - firefox
+  - git
+  - openssh
+  - compton
+  - google-noto-fonts-common # Unicode coverage
+
+gui_pkgs:
+  - nemo #file manager
+  - lxappearance #X appearance
+  - arandr #monitors layout manager 
+
+clitools_pkgs:
+  - ranger #file manager
+  - neofetch #or pyfetch 
+  - feh #image viewer
+  - xsel #clipboard 
+  - maim #screenshot 
+  - zip 
+  - unzip  
+  - htop
+  - rsync
+  - scp
+  - tree
+  - man-pages
+  - tar
+  - gzip
+  - bzip2
+
+network_pkgs:
+  - nmap
+  - nslookup
+  - dig
+  - wireshark
+
+python_pkgs:
+  - python3
+  - python3-pip
+  - virtualenv
+
+java_pkgs:
+  - java-1.8.0-openjdk
+  - maven
+

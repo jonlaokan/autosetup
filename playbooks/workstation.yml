@@ -1,0 +1,71 @@
+---
+
+- name: Install workstation
+  hosts: fedovm
+
+  tasks:
+
+  - name: "Update package database"
+    yum:
+      name: '*'
+      state: latest
+  
+  - name: "Install firefox"
+    yum:
+      name: firefox
+      state: latest
+
+  - name: "Install htop"
+    yum:
+      name: htop
+      state: latest
+
+  - name: "Install nvim"
+    yum:
+      name: neovim
+      state: latest
+
+  - name: "Create nvim dir"
+    file:
+      path: /home/jlaokan/.config/nvim
+      state: directory
+      mode: 0755
+      owner: jlaokan
+      group: users
+
+
+  - name: "Copy nvim dotfile"
+    copy:
+      src: init.vim
+      dest: /home/jlaokan/.config/nvim/init.vim
+      owner: jlaokan
+      group: users
+      mode: 0644
+  
+  - name: "Create plug directory"
+    file:
+      path: /home/jlaokan/.local/share/nvim/site/autoload
+      state: directory
+      owner: jlaokan
+      group: users
+
+  - name: "Fetch nvim plugin manager"
+    get_url:
+      url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      dest: /home/jlaokan/.local/share/nvim/site/autoload
+      owner: jlaokan
+      group: users
+
+  - name: "Install nodejs"
+    yum:
+      name: nodejs
+      state: latest
+
+  - name: "Install python3"
+    yum:
+      name: python3,python3-pip,virtualenv
+      state: latest
+
+  - name: "Install pip packages"
+    pip:
+      name: pynvim

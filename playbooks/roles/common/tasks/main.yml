@@ -1,0 +1,15 @@
+---
+- name: 'Install core packages'
+  yum:
+    name: "{{ core_pkgs }}"
+    state: latest
+
+- name: 'Install python packages'
+  yum:
+    name: "{{ python_pkgs }}"
+    state: latest
+
+- name: 'Install java packages'
+  yum:
+    name: "{{ java_pkgs }}"
+    state: latest
